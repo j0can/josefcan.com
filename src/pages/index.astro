@@ -1,0 +1,72 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/Container.astro";
+import { SITE, HOME, SOCIALS } from "@consts";
+import ArrowCard from "@components/ArrowCard.astro";
+import Link from "@components/Link.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+const blog = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
+
+const projects: CollectionEntry<"projects">[] = (
+  await getCollection("projects")
+)
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+---
+
+<Layout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <Container>
+    <aside data-pagefind-ignore>
+      <h1 class="font-semibold text-black dark:text-white">
+        Hello 👋🏽
+      </h1> <div class="space-y-16"> <img src="/me/me.JPG" class="mx-auto" alt="pfp" loading="eager" width="300" height="300" decoding="async"> <section> <article class="space-y-4"> <span class="animate"> <p>
+        My name is Josef ( ܝܰܘܣܶܦ , ジョセフ) and made i this because i don’t like social media platforms and got tired of notes. I'm a certified meme lord and engineer.
+    </p> <p>
+      Currently exploring all things machine learning, cloud infrastructure and classical sys admin stuff.
+</p> </span> </article> </section> <section class="animate space-y-4"> <h2 class="font-semibold text-black dark:text-white">
+      <div class="space-y-16">
+        <section>
+          <article class="space-y-4">
+            <span>
+            </span>
+            <span class="animate">
+            </span>
+          </article>
+        </section>
+
+        <section class="animate space-y-4">
+          <ul class="not-prose flex flex-wrap gap-2">
+            {
+              SOCIALS.map((SOCIAL) => (
+                <li class="flex gap-x-2 text-nowrap">
+                  <Link
+                    href={SOCIAL.HREF}
+                    external
+                    aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
+                  >
+                    {SOCIAL.NAME}
+                  </Link>
+                  {"/"}
+                </li>
+              ))
+            }
+            <li class="line-clamp-1">
+              <Link
+                href={`mailto:${SITE.EMAIL}`}
+                aria-label={`Email ${SITE.TITLE}`}
+              >
+                {SITE.EMAIL}
+              </Link>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </aside>
+  </Container>
+</Layout>
