@@ -5,9 +5,8 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import pagefind from "astro-pagefind";
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://j0can.github.io/josefcan.com/",
+  site: "https://josefcan.com",
   integrations: [tailwind(), sitemap(), mdx(), pagefind()],
   markdown: {
     shikiConfig: {
