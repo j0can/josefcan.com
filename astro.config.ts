@@ -21,7 +21,8 @@ import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'josefcan.com',
+  site: 'https://josefcan.com',
+  base: '/josefcan.com',
   integrations: [
     tailwind({
       applyBaseStyles: false,
