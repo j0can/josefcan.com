@@ -1,0 +1,34 @@
+---
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import Container from '@/components/Container.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
+import { SITE } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const projects = await getCollection('projects')
+---
+
+<Layout title="About" description={SITE.DESCRIPTION}>
+  <Container class="flex flex-col gap-y-6">
+    <Breadcrumbs items={[{ label: 'About', icon: 'lucide:info' }]} />
+
+    <section>
+      <div class="min-w-full">
+        <h1 class="mb-4 text-3xl font-bold">More about me</h1>
+        <p class="prose prose-neutral mb-8 dark:prose-invert">
+          {SITE.TITLE} Me == ܝܰܘܣܶܦ  (Aramean), ジョセフ (Japanease) and i made this because i hate social media platforms and got tired of notes. Currently building cool stuff that includes AI, ML, DL but also non fancy classical sysadmin stuff.
+        </p>
+
+        <p class="prose prose-neutral mb-8 dark:prose-invert">
+          Im writing this on my NixOS laptop completely riced to the roof.
+          But im thinking about going over to the Apple fanboys since the M3 looks completely cracked.
+        </p>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </div>
+    </section>
+  </Container>
+</Layout>

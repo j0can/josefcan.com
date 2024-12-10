@@ -1,0 +1,103 @@
+---
+import BlogCard from '@/components/BlogCard.astro'
+import Container from '@/components/Container.astro'
+import Link from '@/components/Link.astro'
+import { buttonVariants } from '@/components/ui/button'
+import AgeHCyclesDisplay from "@/components/ui/age";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { SITE } from '@/consts'
+import Layout from '@/layouts/Layout.astro'
+import { getCollection } from 'astro:content'
+
+const blog = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE)
+---
+
+<Layout title="Home" description={SITE.DESCRIPTION}>
+  <Container class="flex flex-col gap-y-6">
+    <section>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-3xl">Josef Can</CardTitle>
+          <CardDescription>
+            <span class="inline-block">
+              I am a <span class="font-bold">engineer, founder and hacker</span>{" "}
+              currently exploring all things computer science, machine learning, and classical physics.
+            </span>
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p class="mb-2 text-sm text-muted-foreground">
+            Working on <Link
+              href="https://codebase.engineering"
+              className="text-foreground"
+              external
+              underline
+            >Codebase Engineering</Link>, and building tech at a battery company.
+          </p>
+          <p class="text-sm text-muted-foreground">
+            Striving for making more open source projects like this website, if you are interested you can find them on my <Link
+              href="https://github.com/j0can"
+              className="text-foreground"
+              underline
+              external
+            >GitHub</Link>.
+            <pre class="text-sm text-muted-foreground">
+              ****+*--=+*###%#**#**%###====+*#**-:-=+**#%%==##+*#*=--==-:-
+              **+***--=+*###%%****#%%%%====+*##*=:-=+**#%%+=##+*#*+--==-:-
+              *++***=-=+*#%%%%#**+*%%%%=====+###=:-=+*###%+=##+*#*+--==-:-
+              **+*+*=:=+*#%%%%#**+*%%%%=====+*#*=:-=+**##%+-*#+***+--==-:=
+              *++***=:=+*###%%#****%%%%=====+*#*=:-=+**##%*-*#=***+--==-:=
+              *++**+=-=**##%%%#++**%%%%=-===+***=:-=+**##%*-+*=++++=-==-:-
+              ++=+++=-=**###%%#++++%%%%=-===+***=:-==+*##%*-+*==+++=-==-:-
+              ++===++:==+*###%#+++=%%%%+---==*#*=.:==+*##%#-=*==+++=-==-:-
+              ++===++:-=+*#####+++=%%%#-... .:=+=:-==+*##%#-=*==+++=-===:-
+              ++---=+:-++*#####+++=##-          -:-==+**###:=+++*+==-===.-
+              ++=====-==+**####+===##  ::-*++=-:.:--=+**###:-++=++++-===:-
+              ++=====--=+****##+==-*#.=+===**-=+-:--=++**##::++=+++=:-==:-
+              ++==-=+--=+***##*+===##=======+=++==:-==+**##-:=+=+++=:-+=::
+              +===-=+--=++**##*+==+#*+=**+==+=+**+:-==++*##-:-====++:-=+::
+              +=----=:-==+*****+-=+++*=-+---=====-:--==+***-:-=-==++--=+::
+              +==++==--=+++****+==+*+++-:-++++=:-:::-==++**-:---==+++**#+:
+              ==+***=---=++****==-=++=+*=:::::-=-:::---=+++-.:=====+##*%+:
+              ==-+*+-:::-===+++=--=+=**+**+==+#*+=::::--=++=.:-=++==++=*-.
+                .-+= ..:--==+==++*#%%@%#*****#*#@@%#*+==-===..-==+==+==+-.
+               ::+**. ..:-==*#%@@@@@@%@@%%%#%%%@@@@@@@@@#=-:::---======+-.
+              .:.+#*:    :+%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%* .:======++=:-
+                .++*:    .%@%@%@@@@@@@@@@@@@@@@@@@@@@@@%%@@@=  :---++++---
+              :+.+**-:::.=@@%@%@@@@@@@@@@@@@@@@@@@@@@@@%@@%@@: -=---::::::
+              *-.+*:+----@%@%%%@@@@@@@@@@@@@@@@@@@@@@@@%@%%%@#.====---==-=
+              +..-+-**==#@%@%%#%@@@@@@@@@@@@@@@@@@@@@@@%%%%%%@=:-----:::::
+              -----+*+==@@%@@%%%@@@@@@@@@@@@@%@@@@@@@@@@%%%%%@#.::::::....
+              -----::+*#@@@%@%#%%@@@%%%@@@@@@%%%%%@@@@@@@%%%@%@-.:::::::::
+              ...:::=##%@@@@@%%#%@@@@%%%@@@@%%@%%%%@@@@@%%%@@@@%::::::--::
+                .:.:*#####*#####%%@@@%%%@@@@@%@@%%%@@@@@%%%%%%#*-::::---::
+               :.:.=******=+**=*%%%@@@%%%@@@@@@@%%%%@@%@%***-:...::::::-::
+            </pre>
+          </p>
+        </CardContent>
+      </Card>
+    </section>
+    <section class="flex flex-col gap-y-4">
+      <div class="flex justify-center">
+        <Link
+          href="/blog"
+          class={buttonVariants({ variant: 'ghost' }) + ' group'}
+        >
+          See all posts <span
+            class="ml-1.5 transition-transform group-hover:translate-x-1"
+            >&rarr;</span
+          >
+        </Link>
+      </div>
+    </section>
+  </Container>
+</Layout>
