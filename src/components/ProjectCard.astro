@@ -2,11 +2,7 @@
 import Link from '@/components/Link.astro'
 import { Badge } from '@/components/ui/badge'
 import { Image } from 'astro:assets'
-import type { CollectionEntry } from 'astro:content'
 
-type Props = {
-  project: CollectionEntry<'projects'>
-}
 
 const { project } = Astro.props
 ---
@@ -27,15 +23,6 @@ const { project } = Astro.props
       <p class="mb-4 text-sm text-muted-foreground">
         {project.data.description}
       </p>
-      <div class="flex flex-wrap gap-2">
-        {
-          project.data.tags.map((tag) => (
-            <Badge variant="secondary" showHash={false}>
-              {tag}
-            </Badge>
-          ))
-        }
-      </div>
     </div>
   </Link>
 </div>
