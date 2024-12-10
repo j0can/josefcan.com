@@ -19,10 +19,8 @@ import sectionize from '@hbsnow/rehype-sectionize'
 
 import icon from 'astro-icon'
 
-// https://astro.build/config
 export default defineConfig({
   site: 'https://josefcan.com',
-  base: '/josefcan.com',
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -44,7 +42,6 @@ export default defineConfig({
       ],
       rehypeHeadingIds,
       rehypeKatex,
-      // @ts-expect-error
       sectionize,
       [
         rehypePrettyCode,

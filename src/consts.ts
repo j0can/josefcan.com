@@ -13,7 +13,7 @@ export type Link = {
 }
 
 export const SITE: Site = {
-  TITLE: '',
+  TITLE: 'josefcan.com/',
   DESCRIPTION:
     'josef can personal site',
   EMAIL: 'josef.can@outlook.com',
