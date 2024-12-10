@@ -42,7 +42,7 @@ export default defineConfig({
       ],
       rehypeHeadingIds,
       rehypeKatex,
-      sectionize,
+      sectionize as unknown as [string, any],
       [
         rehypePrettyCode,
         {
