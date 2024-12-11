@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/check": "^0.7.0",
     "@astrojs/markdown-remark": "^5.2.0",
-    "@astrojs/mdx": "^4.0.2",
+    "@astrojs/mdx": "^3.1.2",
     "@astrojs/react": "^3.6.2",
     "@astrojs/rss": "^4.0.7",
     "@astrojs/sitemap": "^3.1.6",
@@ -31,7 +31,7 @@
     "@shikijs/transformers": "^1.16.3",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
-    "astro": "^5.0.4",
+    "astro": "^4.11.3",
     "astro-icon": "^1.1.1",
     "bootstrap-icons": "^1.11.3",
     "class-variance-authority": "^0.7.0",
