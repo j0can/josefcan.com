@@ -13,7 +13,7 @@ export type Link = {
 }
 
 export const SITE: Site = {
-  TITLE: 'jc/',
+  TITLE: 'j-c',
   DESCRIPTION:
     'josef can personal site',
   EMAIL: 'josef.can@outlook.com',
@@ -24,7 +24,7 @@ export const SITE: Site = {
 
 export const NAV_LINKS: Link[] = [
   { href: '/blog', label: 'Posts' },
-  { href: '/authors', label: 'authors' },
+  { href: 'https://cal.com/josefcan/30min', label: '30 min meeting' },
   { href: '/about', label: 'about' },
 ]
 
@@ -32,4 +32,5 @@ export const SOCIAL_LINKS: Link[] = [
   { href: 'https://github.com/j0can', label: 'GitHub' },
   { href: 'josef.can@outlook.com', label: 'Email' },
   { href: '/rss.xml', label: 'RSS' },
+  { href: 'https://cal.com/josefcan/30min', label: 'Meeting' },
 ]

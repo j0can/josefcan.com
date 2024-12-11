@@ -29,18 +29,19 @@ const blog = (await getCollection('blog'))
           <CardDescription>
             <span class="inline-block">
               I am a <span class="font-bold">engineer, developer and hacker</span>{" "}
-              currently exploring all things computer science, machine learning, and classical physics.
+              exploring all things computer science, machine learning, and classical physics.
             </span>
           </CardDescription>
         </CardHeader>
         <CardContent>
           <p class="mb-2 text-sm text-muted-foreground">
-            Working on <Link
+            Building tech at a battery company and
+            working on <Link
               href="https://codebase.engineering"
-              className="font-bold"
+              class="font-bold"
               external
               underline
-            >Codebase Engineering</Link>, and building tech at a battery company.
+            >Codebase Engineering</Link> for AI research.
           </p>
           <p class="text-sm text-muted-foreground">
             Striving for making more open source projects like this website, if you are interested you can find them on my <Link
@@ -49,7 +50,7 @@ const blog = (await getCollection('blog'))
               underline
               external
             >GitHub</Link>.
-            <pre class="ascii-art">
+            <pre class="ascii-art" style="margin-top: 1rem;">
               ****+*--=+*###%#**#**%###====+*#**-:-=+**#%%==##+*#*=--==-:-
               **+***--=+*###%%****#%%%%====+*##*=:-=+**#%%+=##+*#*+--==-:-
               *++***=-=+*#%%%%#**+*%%%%=====+###=:-=+*###%+=##+*#*+--==-:-
@@ -90,6 +91,32 @@ const blog = (await getCollection('blog'))
             white-space: pre;
             overflow-x: auto;
             word-wrap: normal;
+            background: linear-gradient(
+              90deg,
+              #002200,  /* Darkest green */
+              #004d00,  /* Dark green */
+              #00b300,  /* Bright green */
+              #00ff00,  /* Neon green */
+              #00b300,  /* Bright green */
+              #004d00,  /* Dark green */
+              #002200,  /* Darkest green */
+              #004d00,  /* Dark green */
+              #00b300,  /* Bright green */
+              #00ff00   /* Neon green */
+            );
+            background-size: 400% 100%; /* Extended to create continuous flow */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: greenWave 6s linear infinite; /* Smooth continuous animation */
+            }
+
+          @keyframes greenWave {
+            0% {
+              background-position: 0% 50%;
+            }
+            100% {
+              background-position: 100% 50%; /* Moves across the entire length */
+            }
           }
         </style>     
       </Card>
