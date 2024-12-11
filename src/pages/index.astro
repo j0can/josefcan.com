@@ -49,7 +49,7 @@ const blog = (await getCollection('blog'))
               underline
               external
             >GitHub</Link>.
-            <pre class="text-sm text-muted-foreground" style="white-space: pre-wrap; word-wrap: break-word; max-width: 100%; overflow-x: auto;">
+            <pre class="ascii-art">
               ****+*--=+*###%#**#**%###====+*#**-:-=+**#%%==##+*#*=--==-:-
               **+***--=+*###%%****#%%%%====+*##*=:-=+**#%%+=##+*#*+--==-:-
               *++***=-=+*#%%%%#**+*%%%%=====+###=:-=+*###%+=##+*#*+--==-:-
@@ -82,7 +82,16 @@ const blog = (await getCollection('blog'))
                :.:.=******=+**=*%%%@@@%%%@@@@@@@%%%%@@%@%***-:...::::::-::
             </pre>
           </p>
-        </CardContent>        
+        </CardContent>
+        <style>
+          .ascii-art {
+            font-family: monospace;
+            font-size: 10px;
+            white-space: pre;
+            overflow-x: auto;
+            word-wrap: normal;
+          }
+        </style>     
       </Card>
     </section>
     <section class="flex flex-col gap-y-4">
