@@ -3,6 +3,7 @@ import '../styles/global.css'
 import '../styles/katex.css'
 
 import { SITE } from '@/consts'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
   title: string
@@ -47,6 +48,7 @@ const { title, description } = Astro.props
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(Astro.url)} />
 
+<ViewTransitions />
 
 <script is:inline>
   function setDarkMode(document) {
