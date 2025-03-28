@@ -10,6 +10,7 @@ import {
 } from '@shikijs/transformers'
 import { defineConfig } from 'astro/config'
 import rehypeKatex from 'rehype-katex'
+import rehypeMermaid from 'rehype-mermaid'
 import rehypeExternalLinks from 'rehype-external-links'
 import rehypePrettyCode from 'rehype-pretty-code'
 import remarkEmoji from 'remark-emoji'
@@ -40,6 +41,7 @@ export default defineConfig({
           rel: ['nofollow', 'noreferrer', 'noopener'],
         },
       ],
+      rehypeMermaid,
       rehypeHeadingIds,
       rehypeKatex,
       sectionize as unknown as [string, any],
