@@ -1,7 +1,6 @@
 export type Site = {
   TITLE: string
   DESCRIPTION: string
-  EMAIL: string
   NUM_POSTS_ON_HOMEPAGE: number
   POSTS_PER_PAGE: number
   SITEURL: string
